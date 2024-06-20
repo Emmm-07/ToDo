@@ -1,0 +1,47 @@
+{% extends 'myapp/home.html' %}
+
+{% block title %}
+    Personal
+{% endblock %}
+
+{% load static %}
+
+{% block content %}
+    
+    {% comment %} <a href="" class="add-icon"></a> {% endcomment %}
+
+    <input type="text" name="note-content" id="note-content" placeholder="Input text Here">
+    <input type="hidden" name="csrfmiddlewaretoken" id="csrf_token" value="{{csrf_token}}">
+
+    <button type="submit" id="add_note">➕</button>
+
+    <table id="notes-list">
+        <p class='head-notes'>Notes</p>
+        {% comment %} <thead>
+            <th>Notes</th>
+            <th> </th>
+        </thead> {% endcomment %}
+        <tbody>
+            {% for i in note_list %}
+            <tr>
+                <td class='note' note-id='{{i.id}}'><input type="checkbox"  class="select-note"><p class="note-text">{{i.note}}</p><input type="text"  id="new-note" class="new-note"></td>
+                <td>
+                        <button class="edit-note" type="submit" onclick='editNote(this)'>
+                            <img class="edit-png" src="{% static 'myapp/images/pen.png' %}" alt="">
+                        </button>
+                        &nbsp;
+                        <button class="delete-note" type="submit" onclick='deleteNote(this)'>
+                            <img class="delete-png" src="{% static 'myapp/images/trash.png' %}" alt="">
+                        </button>
+                </td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+
+
+    
+
+{% endblock %}

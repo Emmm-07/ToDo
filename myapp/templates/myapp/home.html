@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+        {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'myapp/images/favicon.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'myapp/css/style.css' %}">
+    
+    <title>{% block title %}
+             Home
+        {% endblock %}
+    </title>
+</head>
+<body>
+    <div class="header">
+        <div class="side-nav">
+            <a href="#" class="logo">
+                <img src="{% static 'myapp/images/logo.png' %}" alt="" class="logo">
+            </a>
+            <br><br>
+            <h1 style="color: #9CAFAA;"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;My TODO</h1>
+            {% comment %} <input type="text" id="search" placeholder="🔍" class="search-bar"> {% endcomment %}
+        <div class="dashboard">
+            <h4>Tasks</h4><br>
+            <ul class="categories1">
+                <li><a href="#"><img src="{% static 'myapp/images/schedule.png' %}" alt="" class="icon">Schedules</a></li>
+                <li><a href="#"><img src="{% static 'myapp/images/calendar.png' %}" alt="" class="icon">Calendar</a></li>
+                <div class="active">&nbsp;</div>
+            </ul>
+            <br><br>
+            <h4>Lists</h4><br>
+            <ul class="categories2">
+                <li><a href="{% url 'myapp:personal' %}"><img src="{% static 'myapp/images/files.png' %}" alt="" class="icon">Personal</a></li>
+                <li><a href="#"><img src="{% static 'myapp/images/files.png' %}" alt="" class="icon">Work</a></li>
+                <li><a href="#"><img src="{% static 'myapp/images/files.png' %}" alt="" class="icon">Life</a></li>
+                <div class="active">&nbsp;</div>
+            </ul>
+        </div>
+          
+        </div>
+
+
+
+        <div class="content">
+            {% block content %}
+            {% comment %} content Here {% endcomment %}
+            {% endblock %}
+            
+        </div>
+        
+    </div>
+
+    
+    
+    
+    <!-- <h1 id="head">Jm's TODO List</h1>
+    
+    <p>This is the homepage</p>
+    <div class=""></div>
+    <ul>
+        <li>Task 1</li>
+        <li>Task 2</li>
+    </ul> -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    {% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> {% endcomment %}
+    <script src="{% static 'myapp/js/index.js' %}"></script>
+    </body>
+</html>
